@@ -43,13 +43,42 @@
 
 - using debugger. when helpful? How to for vs code. 
 
-- checkForTie() nested arrays with .every()
+- ~~checkForTie() nested arrays with .every()~~
+    - dont need v!! can just do v
     - I used .flat() instead
     ```js
     return board.every(v => v.every(c => !!c ));
     ```
 
-- findSpotforCol() - Create version with .findLastIndex()? Which array method is best?
+- ~~findSpotforCol() - Create version with .findLastIndex()? Which array method is best?~~
     - when to use else if vs separate if statements?
 
 - GitHub - how to arrange repos for projects?
+
+- README feedback
+
+- :131 _win(cells) // Why underscores in function name? What are cells?
+
+- ~~Dont understand Solutions version of makeBoard :18~~
+    ```js
+    function makeBoard() {
+    for (let y = 0; y < HEIGHT; y++) {
+        board.push(Array.from({ length: WIDTH }));
+    }
+    }
+    ```
+    - you can use Array.from on an array like object with a length property see here and search for 'length' -> [MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from) 
+
+- better solution for findSpotForCol(x) via solution
+    ```js
+        function findSpotForCol(x) {
+    for (let y = HEIGHT - 1; y >= 0; y--) {
+        if (!board[y][x]) {
+        return y;
+        }
+    }
+    return null;
+    }
+    ```
+
+- more concise comments, stick to functionality not code

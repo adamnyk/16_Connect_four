@@ -19,5 +19,8 @@
 
 ## ToDo
 
-> - Read & Comment checkForWin
+> - ~~Read & Comment checkForWin~~
+> - ~~setTimeout for checkForTie/Win~~
+> - add tests with Jasmine?
+> - Board & piece styling
 > - Add Animation!

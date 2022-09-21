@@ -60,10 +60,10 @@ function makeHtmlBoard() {
 
 /** findSpotForCol: given column x, return top empty y (null if filled) */
 function findSpotForCol(x) {
-  // cycle through arrays backwards
+  // cycle through arrays backwards to start with bottom rows
   for (let y = HEIGHT-1; y >= 0; y--) {
     for (let i = WIDTH-1; i >= 0; i--) {
-      //return y position if index of inner array is same as x coordinate and it is not truthy
+      //return y position if item in column is filled with a flasey value, return null if column is full
       if (i === x) {
         if (!board[y][i]) {
           return y;
@@ -82,18 +82,11 @@ function placeInTable(y, x) {
   // make a div and insert into correct table cell
   const piece = document.createElement("div");
   piece.classList.add('piece', `p${currPlayer}`);
-  const td = document.getElementById(`${y}-${x}`);
-  td.append(piece);
-}
-
-/** endGame: announce game end */
-
-function endGame(msg) {
-  alert(msg);
+  const spot = document.getElementById(`${y}-${x}`);
+  spot.append(piece);
 }
 
 /** handleClick: handle click of column top to play piece */
-
 function handleClick(evt) {
   // get x from ID of clicked cell
   const x = +evt.target.id;
@@ -102,35 +95,33 @@ function handleClick(evt) {
   if (y === null) {
     return;
   }
-
+  
   // place piece in board and add to HTML table
   placeInTable(y, x);
-
+  
   // Update in-memory board with player number
   board[y][x] = currPlayer;
-
+  
   // check for win
   if (checkForWin()) {
     return endGame(`Player ${currPlayer} won!`);
   }
-
-  // check for tie
-  // TODO: check if all cells in board are filled; if so call, call endGame
-  if (checkforTie()) {
-    return endGame('Tie! Game over.');
+  
+  // check for tie: tie if every cell contains a truthy value
+  if (board.flat().every((cell) => !!cell)) {
+    return endGame('Tie!');
   }
-
+  
   // switch players: currPlayer 1 <-> 2
-  currPlayer === 1 ? currPlayer = 2 : currPlayer = 1;
+  currPlayer = currPlayer === 1 ? 2 : 1;
 }
 
-// checkForTie: check if every cell contains a truthy value
-const checkforTie = () => {
-  return board.flat().every((cell) => !!cell);
+/** endGame: announce game end */
+function endGame(msg) {
+  setTimeout(()=> alert(msg), 100);
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
-
 function checkForWin() {
   function _win(cells) {
     // Check four cells to see if they're all color of current player
@@ -149,13 +140,16 @@ function checkForWin() {
 
   // TODO: read and understand this code. Add comments to help you.
 
-  for (let y = 0; y < HEIGHT; y++) {
-    for (let x = 0; x < WIDTH; x++) {
+  for (let y = 0; y < HEIGHT; y++) {  
+    for (let x = 0; x < WIDTH; x++) { 
+      // For each cell create array of winning positions
+      // piece positions to win
       const horiz = [[y, x], [y, x + 1], [y, x + 2], [y, x + 3]];
       const vert = [[y, x], [y + 1, x], [y + 2, x], [y + 3, x]];
       const diagDR = [[y, x], [y + 1, x + 1], [y + 2, x + 2], [y + 3, x + 3]];
       const diagDL = [[y, x], [y + 1, x - 1], [y + 2, x - 2], [y + 3, x - 3]];
-
+      
+      // return true if each of the 4 cells in a winning pattern meet conditions of function _win (legal coordinates and same player)
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
         return true;
       }

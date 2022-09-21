@@ -4,6 +4,7 @@
   width: 50px;
   height: 50px;
   border: solid 1px #666;
+  position: relative;
 }
 
 /* pieces are div within game table cells: draw as colored circles */
@@ -13,8 +14,13 @@
   width: 80%;
   height: 80%;
   border-radius: 50%;
+  /* animation */
+  position: absolute;
+  top: 0;
+  animation: slidein 3s linear 1s;
 }
 
+/* player 1 & 2 pieces */
 .p1 {
   background-color: red;
 }
