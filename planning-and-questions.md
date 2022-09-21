@@ -82,3 +82,8 @@
     ```
 
 - more concise comments, stick to functionality not code
+
+- Animation: 
+    - adding custom easing function, like a bounce?
+    - learning more about keyframes
+    - dropping piece from top of table, not the whole page

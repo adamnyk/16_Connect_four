@@ -118,7 +118,7 @@ function handleClick(evt) {
 
 /** endGame: announce game end */
 function endGame(msg) {
-  setTimeout(()=> alert(msg), 100);
+  setTimeout(()=> alert(msg), 400);
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
@@ -151,6 +151,8 @@ function checkForWin() {
       
       // return true if each of the 4 cells in a winning pattern meet conditions of function _win (legal coordinates and same player)
       if (_win(horiz) || _win(vert) || _win(diagDR) || _win(diagDL)) {
+        // disable gameplay if a player wins
+        document.getElementById("column-top").removeEventListener("click", handleClick);
         return true;
       }
     }

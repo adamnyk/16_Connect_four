@@ -11,6 +11,10 @@
 
 - alert will be given if a player wins
 - alert will be given if there is a tie
+- animation for dropping pieces
+- alert delayed so player can see winning piece
+- gameplay disabled if player wins
+
 
 ## Status
 
@@ -21,6 +25,7 @@
 
 > - ~~Read & Comment checkForWin~~
 > - ~~setTimeout for checkForTie/Win~~
+> - ~~Add Animation!~~
 > - add tests with Jasmine?
 > - Board & piece styling
-> - Add Animation!
+> - hilight winning combination
