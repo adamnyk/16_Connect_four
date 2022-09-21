@@ -38,10 +38,9 @@
 
 ## QUESTIONS
     
-- line 74, using querySelector for ID not working
-    - no numbers to start out css id names? allowable names?
+- ~~line 74, using querySelector for ID not working~~
+    - ~~no numbers to start out css id names? allowable names?~~
 
-- using debugger. when helpful? How to for vs code. 
 
 - ~~checkForTie() nested arrays with .every()~~
     - dont need v!! can just do v
@@ -56,6 +55,8 @@
 - GitHub - how to arrange repos for projects?
 
 - README feedback
+
+- using debugger. when helpful? How to for vs code. 
 
 - :131 _win(cells) // Why underscores in function name? What are cells?
 

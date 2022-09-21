@@ -16,16 +16,12 @@
 - gameplay disabled if player wins
 
 
-## Status
-
-- main game functionality complete
-- Awaiting Further Study & styling
-
 ## ToDo
 
+> - ~~setTimeout for checkForTie/Win~~
 > - ~~Read & Comment checkForWin~~
 > - ~~setTimeout for checkForTie/Win~~
-> - ~~Add Animation!~~
+> - Add bounce to Animation!
 > - add tests with Jasmine?
 > - Board & piece styling
 > - hilight winning combination
