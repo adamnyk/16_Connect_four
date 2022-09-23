@@ -62,18 +62,12 @@ function makeHtmlBoard() {
 function findSpotForCol(x) {
   // cycle through arrays backwards to start with bottom rows
   for (let y = HEIGHT-1; y >= 0; y--) {
-    for (let i = WIDTH-1; i >= 0; i--) {
-      //return y position if item in column is filled with a flasey value, return null if column is full
-      if (i === x) {
-        if (!board[y][i]) {
-          return y;
-        }
-        else if (board[0][i]) {
-          return null;
-        }
-      }
+      //return y position if item in column is filled with a flasy value, return null if column is full
+    if (!board[y][x]) {
+      return y;
     }
   }
+  return null;
 }
 
 /** placeInTable: update DOM to place piece into HTML table of board */
@@ -83,7 +77,9 @@ function placeInTable(y, x) {
   const piece = document.createElement("div");
   piece.classList.add('piece', `p${currPlayer}`);
   const spot = document.getElementById(`${y}-${x}`);
+  if (spot) {
   spot.append(piece);
+  }
 }
 
 /** handleClick: handle click of column top to play piece */

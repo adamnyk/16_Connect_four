@@ -21,7 +21,18 @@
 > - ~~setTimeout for checkForTie/Win~~
 > - ~~Read & Comment checkForWin~~
 > - ~~setTimeout for checkForTie/Win~~
-> - Add bounce to Animation!
-> - add tests with Jasmine?
-> - Board & piece styling
+> - Add bounce to Animation
+> - indicate / set player color, adjust win alert
 > - hilight winning combination
+> - new game button
+> - Board & piece styling
+> - practice with Jasmine testing
+> - use flexbox for positioning - challenge
+> - CATCH connect4.js:86 Uncaught TypeError: Cannot read properties of null (reading 'append')  
+    - at placeInTable (connect4.js:86:8)  
+    - at HTMLTableRowElement.handleClick (connect4.js:100:3)  
+    placeInTable @ connect4.js:86  
+    handleClick @ connect4.js:100       
+    
+
+    
